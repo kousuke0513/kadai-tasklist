@@ -2,7 +2,9 @@
 
 @section('content')
 
-<form mehtod='POST' action"{{'tasks.store'}}" >
+<form method='POST' action="{{route('tasks.store')}}" >
+
+    @csrf
     <div class='w-full'>
     <label for='content' class='label text-center'>
         追加するタスク
