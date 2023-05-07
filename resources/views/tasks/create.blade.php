@@ -11,6 +11,15 @@
     </label>
     <input type='text' name='content'  id='content' class='input input-bordered w-full'>
     </div>
+    
+    <div class='w-full'>
+    <label for='status' class='label text-center'>
+        ステータス
+    </label>
+    <input type='text' name='status'  id='stetus' class='input input-bordered w-full'>
+    </div>
+    
+    
 <button type='submit' class='btn btn-success btn-outline'>
     新規作成
 </button>

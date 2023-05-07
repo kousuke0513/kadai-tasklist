@@ -13,6 +13,7 @@
     {{--navbar--}}
     @include('layout.navbar')
     
+    @include('layout.error_message ')
     <div class="container mx-auto">
         @yield('content')
     </div>

@@ -37,8 +37,12 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $request->validate(['content'=>'required',]);
+        $request->validate(['status'=>'required|max:10',]);
+        
         $task = new Tasks;
+        $task->status=$request->status;
         $task->content=$request->content;
         $task->save();
         
@@ -77,8 +81,13 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
+          $request->validate(['content'=>'required',]);
+        $request->validate(['status'=>'required|max:10',]);
+        
+        
         $task= Tasks::findOrFail($id);
+        $task->status=$request->status;
         $task->content=$request->content;
         $task->save();
         return redirect('/');

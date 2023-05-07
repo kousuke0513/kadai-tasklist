@@ -7,6 +7,7 @@
     <thead>
         <td class='normal-case'>No</td>
         <td class='normal-case'>ToDo</td>
+        <td class='normal-case'>Status</td>
     </thead>
 
     <tbody>
@@ -14,6 +15,7 @@
         <tr>
             <th><a class='link link-accent' href='{{route('tasks.show',$task->id)}}'>{{$task->id}}</a></th>
             <th>{{$task->content}}<input type='checkbox'></th>
+            <th>{{$task->status}}</th>
         </tr>
 @endforeach
     </tbody>
