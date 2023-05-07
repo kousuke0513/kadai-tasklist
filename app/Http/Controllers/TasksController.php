@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Tasks;
+use App\Models\Task;
 
-class TaskController extends Controller
+class TasksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks= Tasks::all();
+        $tasks= Task::all();
         return view('tasks.index',['tasks'=>$tasks,]);
     }
 
@@ -26,7 +26,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-      $task=new Tasks;
+      $task=new Task;
       return view('tasks.create',['task'=>$task,]);
     }
 
@@ -41,7 +41,7 @@ class TaskController extends Controller
         $request->validate(['content'=>'required',]);
         $request->validate(['status'=>'required|max:10',]);
         
-        $task = new Tasks;
+        $task = new Task;
         $task->status=$request->status;
         $task->content=$request->content;
         $task->save();
@@ -57,7 +57,7 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        $task=Tasks::findOrFail($id);
+        $task=Task::findOrFail($id);
         return view('tasks.show',['task'=>$task],);
     }
 
@@ -69,7 +69,7 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        $task=Tasks::findOrFail($id);
+        $task=Task::findOrFail($id);
         return view('tasks.edit',['task'=>$task]);
     }
 
@@ -86,7 +86,7 @@ class TaskController extends Controller
         $request->validate(['status'=>'required|max:10',]);
         
         
-        $task= Tasks::findOrFail($id);
+        $task= Task::findOrFail($id);
         $task->status=$request->status;
         $task->content=$request->content;
         $task->save();
@@ -101,7 +101,7 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        $task=Tasks::findOrFail($id);
+        $task=Task::findOrFail($id);
         $task->delete();
         return redirect('/');
     }
