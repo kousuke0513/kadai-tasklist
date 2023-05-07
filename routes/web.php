@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TasksController;
+use App\Http\Controllers\TaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +12,6 @@ use App\Http\Controllers\TasksController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/' ,[TasksController::class,'index']);
+Route::get('/' ,[TaskController::class,'index']);
 
-Route::resource('tasks',TasksController::class);
+Route::resource('tasks',TaskController::class);
